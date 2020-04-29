@@ -23,7 +23,7 @@ The __EWPtool__ should be installed under a previously installed __IAR Embedded 
 
 ### Procedure
 
-**1.** Execute the installer: [iar_ewptool_setup_3.04.exe](releases/tag/ewptool-release-3.04).
+**1.** Execute the installer: [iar_ewptool_setup_3.04.exe](https://github.com/IARSystems/project-migration-tools/releases).
 
 **2.** Accept the *Software License Agreement*.
 
