@@ -171,6 +171,11 @@ This short *Getting Started tutorial* is far from being a complete walkthrough g
 
 ![ewarmInfoCenter](images/26.png)
 
-Questions? Don’t hesitate to reach out to IAR Systems’ technical specialists at [fae@iar.com](mailto:fae@iar.com?subject=Tell%20me%20more%20about%20EWPtool%20and%20migrating%20projects)
+---
+If you have questions regarding this repository contents, you can start by checking its [issue tracker][repo-old-issue-url] for the previously asked questions.
+If it is a new question, feel free to post it [here][repo-new-issue-url].
+
+[repo-new-issue-url]: https://github.com/IARSystems/project-migration-tools/issues/new
+[repo-old-issue-url]: https://github.com/IARSystems/project-migration-tools/issues?q=is%3Aissue+is%3Aopen%7Cclosed
 
 
