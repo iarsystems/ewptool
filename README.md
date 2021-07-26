@@ -22,39 +22,23 @@ Make sure this feature is enabled in `Tools` → `Options` → `Project` → `En
 
 ![ide-options](images/ide-options.png)
 
-## Introduction
-__EWPtool__ is a small utility that populates an __IAR Embedded Workbench__ project with a chosen source folder tree.
 
 ## Installation
-The __EWPtool__ should be installed under a previously installed __IAR Embedded Workbench__ folder.
+The installation of the __EWPtool__ utility is simple. Please follow the steps below:
 
-### Procedure
+1. Close all the instances of the __IAR Embedded Workbench IDE__.
+2. Download the archive with the latest release of the [EWPtool utility](/common.zip). <!-- TODO: add released package URL -->
+3. Extract the __ewptool.zip__ archive contents inside the `<path-to>/<iar-embedded-workbench-installation-folder>`, on top of its existing `common` folder.
+4. Launch the __IAR Embedded Workbench IDE__.
 
-**1.** Execute the installer: [iar_ewptool_setup_3.04.exe](https://github.com/IARSystems/project-migration-tools/releases).
+>:warning: If multiple instances of the _IAR Embedded Workbench_ are installed on different locations, this __EWPtool__ installation process must be repeated for each instance in which the __EWPtool__ is going to be used with.
 
-**2.** Accept the *Software License Agreement*.
 
-![LicenseAgreemnet](/images/1.png)
+## General usage guidelines
+The project layout in the IAR Embedded Workbench is logical. This means that, whenever desired, source files could be added and grouped in a completely different way than the way they are actually arranged in the filesystem.
 
-**3.** The installer will initially point to the __IAR Systems__ folder in the __Program Files__ folder. Type the desired path or click the `Browse` button.
+The __EWPtool__ populates a project reflecting the source tree layout so the logical layout matches the layout from the filesystem.
 
-![SelectDestinationFolder](/images/2.png)
-
-**4.** Unfold the __IAR Systems__ folder and choose which __Embedded Workbench__ should be used for the installation. Once the choice has been made, click the `OK` button to continue.
-
-![BrowseInstallFolder](/images/3.png)
-
-**5.**	Verify the chosen path and then click the `Next` button.
-
-![VerifyChosenPath](/images/4.png)
-
-**6.** When you are ready to install, confirm by clicking the `Install` button.
-
-![ReadyToInstall](/images/5.png)
-
-**7.** And finally, click `Finish` to exit the setup program.
-
-![FinishInstall](/images/6.png)
 
 ## Usage guidelines
 
