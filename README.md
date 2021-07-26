@@ -1,4 +1,4 @@
-## Tutorial: Getting Started with IAR EWPtool 3.04
+## Tutorial</br>Getting Started with the EWPtool
 
 ## Table of Contents
 
