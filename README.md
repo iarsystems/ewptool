@@ -27,8 +27,8 @@ Make sure this feature is enabled in `Tools` → `Options` → `Project` → `En
 The installation of the __EWPtool__ utility is simple. Please follow the steps below:
 
 1. Close all the instances of the __IAR Embedded Workbench IDE__.
-2. Download the archive with the latest release of the [EWPtool utility](/common.zip). <!-- TODO: add released package URL -->
-3. Extract the __ewptool.zip__ archive contents inside the `<path-to>/<iar-embedded-workbench-installation-folder>`, on top of its existing `common` folder.
+2. Download the archive with the latest release of the [EWPtool utility](https://github.com/IARSystems/project-migration-tools/releases/download/3.1.0/EWPtool-3.1.0.zip).
+3. Extract the zip archive contents inside the `<path-to>/<iar-embedded-workbench-installation-folder>`, on top of its existing `common` folder.
 4. Launch the __IAR Embedded Workbench IDE__.
 
 >:warning: If multiple instances of the _IAR Embedded Workbench_ are installed on different locations, this __EWPtool__ installation process must be repeated for each instance in which the __EWPtool__ is going to be used with.
