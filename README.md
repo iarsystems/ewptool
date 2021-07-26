@@ -1,20 +1,5 @@
 ## Tutorial</br>Getting Started with the EWPtool
 
-## Table of Contents
-
-* [Introduction](#introduction)
-* [Installation](#installation)
-* [Usage Guidelines](#usage-guidelines)
-* [Customizing the project tree layout](#customizing-the-project-tree-layout)
-* [What are the next steps?](#what-are-the-next-steps)
-  * [Target Device Selection](#target-device-selection)
-  * [Library Configuration](#library-configuration)
-  * [Compiler's Optimization Levels](#compilers-optimization-levels)
-  * [Compiler's preprocessor](#compilers-preprocessor)
-  * [Linker Configuration](#linker-configuration)
-  * [Debugger Configuration](#debugger-configuration)
-* [Summary](#summary)
-
 ## Introduction
 __EWPtool__ is a small utility that populates an __IAR Embedded Workbench__ project with a chosen source folder tree.
 
