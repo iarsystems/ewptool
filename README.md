@@ -40,37 +40,78 @@ The project layout in the IAR Embedded Workbench is logical. This means that, wh
 The __EWPtool__ populates a project reflecting the source tree layout so the logical layout matches the layout from the filesystem.
 
 
-## Usage guidelines
+## General usage guidelines
+The project layout in the IAR Embedded Workbench is logical. This means that, whenever desired, source files could be added and grouped in a completely different way than the way they are actually arranged in the filesystem.
 
-**1.** __EWPtool__ is simple and easy to use. Whenever in an existing project or in a new project, go to `Tools` → `Add new source folder…`.
+The __EWPtool__ populates a project reflecting the source tree layout so the logical layout matches the layout from the filesystem.
 
-![AddNewFolder1](/images/7.png)
+### Adding the project's sources
+This section provides a general overview on how the __EWPtool__ can be used to quickly populate projects with existing source code.
 
-**2.** A new window titled __Browse for Folder__ will show up pointing to the project’s folder (__$PROJ_DIR$__). Select the desired source folder to be added to the active project. For example:
+>:warning: All the examples below are solely for illustrative purposes.
 
-![BrowserForSourceFolder](/images/8.png)
+* Create a __New Empty Project__ by choosing `Project` → `Create New Project` → `Empty Project` → `OK`.
 
-**3.** The IDE will then tell you that the {project name}__.ewp__ (*Embedded Workbench Project*) has been modified on disk and then you will be offered to reload the project. Click on the `Yes` button to reload the project.
+* A __Save As__ dialog will show up. Save the IAR **E**mbedded **W**orkbench **P**roject file (`<project-name>.ewp`) in the project's source tree top level folder.
 
-![ewRelpadProject](/images/9.png)
+* Select `Tools` → `Add new source folder…`.
 
-**4.** The project will be automatically populated by all the source files within the selected folder, recursively, as it can be seen on the `Workspace Window`. A group named *src*  will be created on the top level of the project tree. Notice that a {project name}__.ipcf__ (*IAR Project Connection File*) also was added. For example:
-  
- ![wsInitialProjectTree](/images/10.png)
+![ewptool-menu-entry](images/7.png)
+
+* A new window titled __Browse for Folder__ will show up pointing initially to the folder with the project file. From there, select the desired source tree folder that will be appended to the active project. Usually the project's top directory will be chosen. For example:
+
+![ewptool-browser](images/8.png)
+
+>:warning: Please notice that the __EWPtool__ is also able to add folders that are located on any upper or lower level relative to the project file, as far as the chosen folder belongs to **the same drive in which the project file is stored (i.e. C:, D:, etc)**. You can read more about it in the section [Appending extra source code](#appending-extra-source-code) below.
+
+* The IDE will then tell you that the `<path-to>/<project>.ewp` project file has been modified on "disk" and will offer to reload the project. This happens because the __EWPtool__ automatically added a `<project>.ipcf` file to the project layout. Click on the `Yes` button to reload the project.
+
+![dialog-project-reload](images/9.png)
+
+* Reloading the project with the `<project>.ipcf` will recursively append the existing source files from the previously selected folder to the current project layout. The result can be verified by unfolding the group named `src`, located on the project's layout top level in the `Workspace window`. For example:
  
-**5.** It is possible to further `Add new source folder...` on an existing project. Before moving forward, save the current project by choosing `File` → `Save All`. 
+![workspace-initial-project-layout-tree](images/10.png)
 
-**6.** Folders located above the Project’s directory (__$PROJ_DIR$__) can also be added. Once again, perform `Tools` → `Add new folder…`. For example: 
+>:warning: If desired, the current layout for these groups can be tweaked later on. Please refer to [Customizing the project tree layout](#customizing-the-project-tree-layout) for more information.
 
-![ewptoolBrowseForFolder](/images/11.png)
+### Appending extra source code
+Many embedded software projects use 3rd-party source code to support the actual application. If these components were located within the project's source tree, they would be already appended to the project layout from the time the project's directory was selected.
 
-**7.** As for our example, the *3rdParty_Libraries* folder is located one level above (“..”) the Project’s Directory (__$PROJ_DIR$__). For every level above the Project's directory, a group named ".." is created within the *src* group. This feature is particularly useful, as it shows the relative path to the added folders when working under a group perspective. All the added files added by the __EWPtool__ will have their paths relative to the __$PROJ_DIR$__.
+Still, there are more complex scenarios where pieces of the application might be located on a parent level, outside the project's source tree. Perhaps because these components are used on other projects and are maintained separately. If that's the case, the __EWPtool__ utility also can help populate the project with them.
 
-![wsUpperFolders](/images/12.png)
+For this example, let's consider adding a folder named `3rd-party-components`, located one level above (`..`) the project's directory (__$PROJ_DIR$__), using the __EWPtool__ utility a second time:
 
-**8.** __EWPtool__ will also recursively populate the Project’s C/C++ preprocessor include directories with any folders containing header files (__.h__ or __.hpp__ extensions). For example:
+![add-3rd-party-code](images/11.png)
 
-![optCompilerPreprocessor](/images/13.png)
+When adding directories located above __$PROJ_DIR$__, one or more groups named `..` are created as reference to how many levels above the __$PROJ_DIR$__ the extra source folders are located, reflecting the arrangement of these source files on the filesystem. On the logical layout this grouping helps to identify where the extra source files are located relatively to the __$PROJ_DIR$__.
+
+![workspace-upper-folders](images/12.png)
+
+>:warning: [$PROJ_DIR$](https://wwwfiles.iar.com/arm/webic/doc/EWARM_IDEGuide.ENU.pdf#page=85) is an IDE's internal [argument variable](https://wwwfiles.iar.com/arm/webic/doc/EWARM_IDEGuide.ENU.pdf#page=85) which translates to the absolute path for the location where the project file is stored.
+
+### Preprocessor entries
+By default, a project created with the IAR Embedded Workbench will search for C/C++ header files in the toolchain's headers default locations as well as in the $PROJ_DIR$. 
+
+The IDE provides a simple way for other search locations to be added from the Project Options (`C/C++ Compiler` → `Preprocessor` → `Additional Include Directories: (one per line)`).
+
+When one or more source folders are added to the project using the __EWPtool__, it will recursively detect any folders containing header files (any files with the __.h__ or the __.hpp__ extensions). Then it will fill the C/C++ Preprocessor entries accordingly. For example:
+
+![options-compiler-preprocessor](images/13.png)
+
+This automation will propagate through every existing build configuration within the project (i.e. "Debug", "Release", etc.).
+
+:warning: The same automation will populate with the __Additional include directories__ for the __Assembler Preprocessor__ (`Assembler` → `Preprocessor` → `Additional Include Directories: (one per line)`).
+
+### Source code detection
+The __EWPtool__ utility detects source file types by their extension. The file extensions that are automatically detected are specified in the table below.
+
+| Source file type | Extension           |
+|------------------|---------------------|
+|C sources         | __*.c__             |
+|C++ sources       | __*.cc__, __*.cpp__ |
+|Assembly sources  | __*.s__             |
+|Static libraries  | __*.a__             |
+
 
 ## Customizing the project tree layout
 Once we got all the involved files added to the project, it is possible to customize the project’s source tree structure in the `Workspace Window`, according to any particular preferences.
@@ -100,21 +141,6 @@ Based on our example project, let’s imagine someone wants to have the *3rdPart
 
 ![ideSaveAll](/images/18.png)
 
-## Remarks
-- The __EWPtool__ utility will open a Windows shell dialog window for you to choose a new source folder to be added to the project. The chosen folder can be located on any level above or below the *project path* as long as it belongs to **the same drive in which the project is stored** (*i.e. C:, D:, etc*).
-
-
-- The file types which are automatically added by the __EWPtool__ to the project tree in the `Workspace Window` are:
-
-| Source file type | Extension           |
-|------------------|---------------------|
-|C sources         | __*.c__             |
-|C++ sources       | __*.cc__, __*.cpp__ |
-|Assembly sources  | __*.s__             |
-|Static libraries  | __*.a__             |
-
-
-- Any folders containing header files (__.h__ and __.hpp__ extensions) are going to be automatically added to the preprocessor search path for the __C/C++ Compiler__ and also for the __Assembler__ in their corresponding Project options tab. This automation will be propagated to every existing `Debug Configuration`, which is typically *Debug* and *Release*.
 
 ## What are the next steps?
 The main purpose of the __EWPtool__ is to help you to quickly populate your new (or existing) project with all the necessary source files, headers and static libraries. This tool can help save a huge amount of time, especially when it comes to bigger projects. Although, we are not done yet. There are some extra adjustments to look for when migrating projects like this, so it gets properly configured. It needs to be  in accordance with the used target device, library configuration, the compiler’s optimization levels, linker configurations, debug probe driver and so on. Even then, the __IAR Embedded Workbench__, for all of its supported architectures, makes very simple and quick to change those settings.
