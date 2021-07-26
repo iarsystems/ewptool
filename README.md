@@ -106,6 +106,7 @@ The __EWPtool__ utility detects source file types by their extension. The file e
 |Assembly sources  | __*.s__             |
 |Static libraries  | __*.a__             |
 
+:warning: Automatic source code detection might fail for some file extensions when using the __EWPtool__ with architectures that rely on the XLINK technology.
 
 ## Customizing the project tree layout
 Once we get all the desired files automatically appended to the project, we can think of ways of customizing the project layout in the __Workspace window__, according to any particular preferences.
