@@ -114,33 +114,69 @@ The __EWPtool__ utility detects source file types by their extension. The file e
 
 
 ## Customizing the project tree layout
-Once we got all the involved files added to the project, it is possible to customize the project’s source tree structure in the `Workspace Window`, according to any particular preferences.
-Based on our example project, let’s imagine someone wants to have the *3rdParty_Libraries* group at the same level of the *src* group. Perhaps even prefer to have a *Sources* group instead of one *src* group. Given that the tool already populated the project with the needed files, those references are mantained if the groups are moved around, or even renamed. These small cosmetic changes are easy to achieve and here is how: 
+Once we get all the desired files automatically appended to the project, we can think of ways of customizing the project layout in the __Workspace window__, according to any particular preferences.
 
-**1.** Right-click on the {project name}__.ipcf__ file and choose `Remove`. You can alternatively highlight the file and press the `Del` key.
-  
-**2.** A question dialog will pop-up asking for item removal. Confirm the removal of the item by clicking on the `Yes` button.  The .ipcf file itself won't be erased from the project folder. 
+Let's now consider that the `3rd-party-components` group should be on the same level of the `src` group. Also, `src` might not be as descriptive as `Application` for one's tastes, and so on.
 
-![ideRemoveItem](/images/14.png)
+### Removing the IAR Project Connection File (IPCF)
+The nodes layout inside the `src` group is __persistent__. This happens while they are managed by the IAR Project Connection File (`*.ipcf`). This property is also true for the additional directories in the preprocessor settings. Severing this connection will cease this property and all the persistent nodes will become editable again. In order to get to that, the `<project>.ipcf` must first be removed from the project. If that's the case, please proceed as follows: 
 
-**3.** Once the {project name}__.ipcf__ is removed from the Project, it is possible to move the groups which have been created when adding source folders. Save the Project by selecting `File` → `Save All`.
+* Right-click on the `<project>.ipcf` file and choose `Remove` from its context menu. (Alternatively, it is possible to highlight the file and press the <kbd>DEL</kbd> key.)
 
-**4.** Now use the mouse to drag the desired group (in this case *3rdPartyLibraries*) and drop it on top of the __Project__ name as shown below:
+* A question dialog will pop-up for confirmation of its removal. Confirm the removal by clicking `Yes`.
 
-![wsMoveGroup](/images/15.png)
+![ide-pm-remove-ipcf-node](images/14.png)
+
+>:warning: Removing the `<project>.ipcf` file from the project will not delete the file from its original location within the filesystem.
+
+### Rearranging the project layout 
+Once the `<project>.ipcf` is removed from the project, it becomes possible to rearrange groups (and/or files) nodes created with the __EWPtool__ within the __Workspace window__. This normally can be performed through simple drag'n drop operations. 
+
+* Dragging the `3rd-party-components` group and dropping it on top of the project's name will move it, as shown below:
+
+![workspace-move-group](images/15.png)
+
+>:warning: After moving the `3rd-party-components` node to the project's layout top level, the group `..` became empty, hence it can be safely removed from the project layout using the <kbd>DEL</kbd> key.
  
-**5.** To rename the *src* group, right-click on it and choose `Rename…`.
+* Renaming the `src` group can be performed by a right-click on top of this group followed by the `Rename...` command:
 
-![wsRenameFile](/images/16.png)
+![workspace-rename-group](images/16.png)
 
-**6.** Type in the desired `New group name` and finish the operation by clicking `OK`.
+* A modal window titled `Rename group <current-group-name>` will show up. Fill with the desired string (i.e. `Application`) and finish the operation by clicking on `OK`:
 
-![ideRenameGroup](/images/17.png)
+![rename-group-modal](images/17.png)
 
-**7.** Once you have your project the way you see fit, save the project by choosing `File` → `Save All` or else click the `Save All` button in the __toolbar__.
+* Once you have the project layout the way you see fit, save the project by choosing `File` → `Save All` or else click the `Save All` icon in the __main toolbar__.
 
-![ideSaveAll](/images/18.png)
+![ide-save-all](images/18.png)
 
+### Excluding sources from the build configuration
+There are cases where not every single source file present in a folder should be used on a build configuration at the same time. Perhaps multiple implementations of the same functions but with different trade-offs. In those cases, a choice should be made.
+
+In our fictional project example, this happens with the __buffer__ component where a type choice must be made among the `type A`, `type B` and `type C`. 
+
+Let's say we decide that our project needs the `type A` buffer implementation. We need to exclude `type B` and `type C` from the current build configuration. 
+
+There are at least a couple of ways of accomplish this in the __Workspace window__:
+
+- __Remove the undesired files from the project layout__:
+   - Highlight each of the undesired file nodes (`buffer_typeB.c` and `buffer_typeC.c`).
+   - Remove them from the project layout by pressing the <kbd>DEL</kbd> key.
+or...
+
+- __Exclude the undesired files from the build__:
+    -  For each of the undesired file nodes: right-click and select: `Options` → `Exclude from build`.
+or...
+
+- __Create an "excluded" group__:
+   - Create a new group (i.e. `excluded`) inside the desired group.
+   - Right-click on the `excluded` group and select: `Options` → `Exclude from build`.
+   - While holding <kbd>SHIFT</kbd>, select multiple files (i.e. click on `buffer_typeB.c` followed by `buffer_typeC.c`).
+   - Finally drag the selection and drop these files inside the `excluded` group. By consequence, they will be excluded from the "Debug" build configuration.
+
+![project-exclude-group](images/exclude.png)
+
+:warning: Notice that when a group or a file is __excluded from build__, its icon becomes grayed.
 
 ## What are the next steps?
 The main purpose of the __EWPtool__ is to help you to quickly populate your new (or existing) project with all the necessary source files, headers and static libraries. This tool can help save a huge amount of time, especially when it comes to bigger projects. Although, we are not done yet. There are some extra adjustments to look for when migrating projects like this, so it gets properly configured. It needs to be  in accordance with the used target device, library configuration, the compiler’s optimization levels, linker configurations, debug probe driver and so on. Even then, the __IAR Embedded Workbench__, for all of its supported architectures, makes very simple and quick to change those settings.
