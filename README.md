@@ -243,14 +243,11 @@ When migrating sources that use non-portable code (i.e. compiler-specific extens
 
 For more information, refer to the __User Guides__ directly from the [IAR Systems Support page](https://www.iar.com/knowledge/support). If you have the product already installed on your workstation, it is possible to access its __User Guides__ from the IDE's main menu: `Help` → `Information Center` → `User guides`.
 
-### Summary
-This short *Getting Started tutorial* is far from being a complete walkthrough guide which would present every possible option or particular occasion which could pop-up when migrating projects. Even then, the techniques presented here are good hints and powerful shortcuts for moving faster across the essential steps that pave the way to unleash the full potential on the *IAR Embedded Workbench* IDE. The [User guides](https://www.iar.com/support/user-guides/user-guide-iar-embedded-workbench-for-arm) included in the `Help` → `Information Center` → `User guides` can also be of great help in this process.  
+## Summary
+This short tutorial offered general guidelines with tips and shortcuts for developers willing to get a speedup factor when migrating a project, from scratch, to the IAR Embedded Workbench.
 
-![ewarmInfoCenter](images/26.png)
+In a [video](https://www.youtube.com/watch?v=xtmpmy8t19Q) we show step-by-step one use case where the __EWPtool__ excels when migrating, from scratch, a RTOS project with a relatively complex source tree.
 
----
-If you have questions regarding this repository contents, you can start by checking its [issue tracker][repo-old-issue-url] for the previously asked questions.
-If it is a new question, feel free to post it [here][repo-new-issue-url].
 
 <!-- Links -->
 [repo-new-issue-url]: https://github.com/IARSystems/project-migration-tools/issues/new
