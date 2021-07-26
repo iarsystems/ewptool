@@ -1,5 +1,9 @@
 ## Tutorial</br>Getting Started with the EWPtool
 
+If you want to be notified in your GitHub inbox about updates to this tutorial, you can start __watching__ this repository. You can customize which types of notification you want to get. Read more about [notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications) and how to [customize](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications#customizing-notifications-and-subscriptions) them.
+
+If you end up with a question specifically related to [this tutorial](https://github.com/iarsystems/project-migration-tools), you might be interested in verifying if it was already answered from [earlier questions][repo-old-issue-url]. Or, [ask a new question][repo-new-issue-url] if you could not find any answer for your question. 
+
 ## Introduction
 __EWPtool__ is a small utility that populates an __IAR Embedded Workbench__ project with a chosen source folder tree.
 
@@ -160,7 +164,6 @@ This short *Getting Started tutorial* is far from being a complete walkthrough g
 If you have questions regarding this repository contents, you can start by checking its [issue tracker][repo-old-issue-url] for the previously asked questions.
 If it is a new question, feel free to post it [here][repo-new-issue-url].
 
+<!-- Links -->
 [repo-new-issue-url]: https://github.com/IARSystems/project-migration-tools/issues/new
 [repo-old-issue-url]: https://github.com/IARSystems/project-migration-tools/issues?q=is%3Aissue+is%3Aopen%7Cclosed
-
-
