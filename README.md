@@ -94,7 +94,7 @@ When one or more source folders are added to the project using the __EWPtool__, 
 
 This automation will propagate through every existing build configuration within the project (i.e. "Debug", "Release", etc.).
 
-:warning: The same automation will populate with the __Additional include directories__ for the __Assembler Preprocessor__ (`Assembler` → `Preprocessor` → `Additional Include Directories: (one per line)`).
+>:warning: The same automation will populate with the __Additional include directories__ for the __Assembler Preprocessor__ (`Assembler` → `Preprocessor` → `Additional Include Directories: (one per line)`).
 
 ### Source code detection
 The __EWPtool__ utility detects source file types by their extension. The file extensions that are automatically detected are specified in the table below.
@@ -106,7 +106,7 @@ The __EWPtool__ utility detects source file types by their extension. The file e
 |Assembly sources  | __*.s__             |
 |Static libraries  | __*.a__             |
 
-:warning: Automatic source code detection might fail for some file extensions when using the __EWPtool__ with architectures that rely on the XLINK technology.
+>:warning: Automatic source code detection might fail for some file extensions when using the __EWPtool__ with architectures that rely on the XLINK technology.
 
 ## Customizing the project tree layout
 Once we get all the desired files automatically appended to the project, we can think of ways of customizing the project layout in the __Workspace window__, according to any particular preferences.
@@ -146,7 +146,7 @@ Once the `<project>.ipcf` is removed from the project, it becomes possible to re
 ![ide-save-all](images/18.png)
 
 ### Excluding sources from the build configuration
-There are cases where not every single source file present in a folder should be used on a build configuration at the same time. Perhaps multiple implementations of the same functions but with different trade-offs. In those cases, a choice should be made.
+There are cases where not every single source file present in a folder should be used on a build configuration at the same time. Perhaps due multiple implementations of the same functions but with different trade-offs. In those cases, a choice should be made.
 
 In our fictional project example, this happens with the __buffer__ component where a type choice must be made among the `type A`, `type B` and `type C`. 
 
@@ -171,8 +171,9 @@ or...
 
 ![project-exclude-group](images/exclude.png)
 
-:warning: Notice that when a group or a file is __excluded from build__, its icon becomes grayed.
+>:warning: Notice that when a group or a file is __excluded from build__, its icon becomes grayed.
 
+>:warning: Excluding sources from the current build configuration does not propagate to other build configurations.
 
 ## Great! Now what?
 As we have seen, the purpose of the __EWPtool__ is to help developers to quickly populate a new (or even an existing) project with one (or more) directories containing source files, headers and static libraries. This tool can help to save a substantial amount of time, especially when it comes to projects with many sub-directories. 
