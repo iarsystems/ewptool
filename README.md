@@ -2,7 +2,25 @@
 
 If you want to be notified in your GitHub inbox about updates to this tutorial, you can start __watching__ this repository. You can customize which types of notification you want to get. Read more about [notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications) and how to [customize](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications#customizing-notifications-and-subscriptions) them.
 
-If you end up with a question specifically related to [this tutorial](https://github.com/iarsystems/project-migration-tools), you might be interested in verifying if it was already answered from [earlier questions][repo-old-issue-url]. Or, [ask a new question][repo-new-issue-url] if you could not find any answer for your question. 
+If you end up with a question specifically related to [this tutorial](https://github.com/iarsystems/project-migration-tools), you might be interested in verifying if it was already answered from [earlier questions][repo-old-issue-url]. Or, [ask a new question][repo-new-issue-url] if you could not find any answer for your question.
+
+## Frequently Asked Questions
+### What is the EWPtool utility?
+__EWPtool__ is a small utility that can help to speed-up when populating an __IAR Embedded Workbench__ project with an existing source code tree.
+
+Currently the IDE allows adding source files from a single folder at a time, which is fine for a few folders. Although, this process can become time-consuming in cases where there are too many folders. The EWPtool is an external utility that integrates pretty well to the IDE, allowing it to perform the task of populating a project with an entire source tree at once. The bigger the source tree is, the bigger is the benefit this utility offers.
+
+### What does EWPtool not do?
+__EWPtool__ does __not__ directly convert existing project files created with 3rd-party IDEs.
+
+Some flavors of the IAR Embedded Workbench offer built-in Project Converter tools that can convert projects created using 3rd-party IDEs. The __EWPtool__ utility is not a requirement for when using those tools. In those cases, you can safely disregard this tutorial. Instead, please visit the "Migration Guides" section in the official [Project Migration tools](https://www.iar.com/products/project-migration-tools/) page for more information specific to those tools.
+
+### What is required for the EWPtool to function?
+The __EWPtool__ uses the IPCF (_IAR Project Connection File_) feature. This feature is implemented on any reasonably recent versions of the __IAR Embedded Workbench IDE__.
+
+Make sure this feature is enabled in `Tools` → `Options` → `Project` → `Enable Project Connections`.
+
+![ide-options](images/ide-options.png)
 
 ## Introduction
 __EWPtool__ is a small utility that populates an __IAR Embedded Workbench__ project with a chosen source folder tree.
