@@ -39,12 +39,6 @@ The project layout in the IAR Embedded Workbench is logical. This means that, wh
 
 The __EWPtool__ populates a project reflecting the source tree layout so the logical layout matches the layout from the filesystem.
 
-
-## General usage guidelines
-The project layout in the IAR Embedded Workbench is logical. This means that, whenever desired, source files could be added and grouped in a completely different way than the way they are actually arranged in the filesystem.
-
-The __EWPtool__ populates a project reflecting the source tree layout so the logical layout matches the layout from the filesystem.
-
 ### Adding the project's sources
 This section provides a general overview on how the __EWPtool__ can be used to quickly populate projects with existing source code.
 
@@ -178,46 +172,76 @@ or...
 
 :warning: Notice that when a group or a file is __excluded from build__, its icon becomes grayed.
 
-## What are the next steps?
-The main purpose of the __EWPtool__ is to help you to quickly populate your new (or existing) project with all the necessary source files, headers and static libraries. This tool can help save a huge amount of time, especially when it comes to bigger projects. Although, we are not done yet. There are some extra adjustments to look for when migrating projects like this, so it gets properly configured. It needs to be  in accordance with the used target device, library configuration, the compiler’s optimization levels, linker configurations, debug probe driver and so on. Even then, the __IAR Embedded Workbench__, for all of its supported architectures, makes very simple and quick to change those settings.
+
+## Great! Now what?
+As we have seen, the purpose of the __EWPtool__ is to help developers to quickly populate a new (or even an existing) project with one (or more) directories containing source files, headers and static libraries. This tool can help to save a substantial amount of time, especially when it comes to projects with many sub-directories. 
+
+Although, we are not done yet. There are some extra adjustments to look for when migrating projects from scratch like this, so it gets properly configured. The project needs to be in accordance with the used target device, library configuration, the compiler’s optimization levels, linker configurations, debug probe driver and so on. Even then, the __IAR Embedded Workbench__, for all of its supported architectures, makes it very easy to change these settings.
+
+Now let's take a look at the basics.
 
 ### Target Device Selection
-Open the project’s options with `Project` → `Options (ALT+F7)` and navigate to the `General Options` → `Target`. This tab will allow you to select the target device and it may present itself in a slightly differently yet familiar manner, depending on the __IAR Embedded Workbench__ architecture in use. Below you can see how the `Target` tab looks like for *Arm* and for *RISC-V*:  
+Open the project’s options with `Project` → `Options` (<kbd>ALT</kbd>+<kbd>F7</kbd>) and navigate to the `General Options` → `Target` tab. This tab will allow you to select the target device. 
 
-![optTargetArm](images/19.png)   ![optTargetRISCV](images/20.png)
+The __Target__ tab will present itself slightly different depending on the __IAR Embedded Workbench__ architecture in use. The screenshots below were taken from the __Arm__ and __RISC-V__ flavors, respectively:  
+
+![target-tab](images/19-arm+riscv.png)
 
 ### Library Configuration
-Once you chose the device, you could move to the __Library Configuration__ tab to check some options. For *Arm* users, this tab is especially interesting if working with CMSIS-based projects; case in which, the `Use CMSIS` option should be selected.
+The __Library Configuration__ tab from the __General Options__ might be especially interesting for __Arm__ users working with [CMSIS](https://developer.arm.com/tools-and-software/embedded/cmsis)-based projects; case in which the `Use CMSIS` option should be selected.
 
-![optLibConfig](images/21.png)
+![project-options-library-config-cmsis](images/21.png)
 
-### Compiler's optimization levels
-On the `C/C++ Compiler` category, under the `Optimizations` tab you can easily choose the optimization level from __None__ up to __High__. When __High__ is selected, it is possible to select among 3 different optimization objectives:
+### C/C++ Compiler Optimizations
+In the `C/C++ Compiler` category, under the `Optimizations` tab you can easily choose the optimization level from __None__ up to __High__.
 
-- `Size`, which means the smallest code size. Typically used to save flash memory resources when flash memory cost is more important than speed.
+When __High__ is selected, it is possible to select among 3 different optimization objectives:
 
-- `Speed`, which means a much faster code in which typically incurs some extra flash memory consumption as a trade-off.
+- `Size` means the smallest code size. This objective can be selected when minimizing the program memory consumption is more important than execution speed.
 
-- `Balanced`, will use heuristics with the objective of making smart decisions on every piece of code in order to make it run as fast as possible if it doesn’t come with a great toll in the code size.
+- `Speed` means code that executes faster. This objective can be selected when speed is more important than the code size. 
 
-![optLibOptimizations](images/22.png)
+- `Balanced` will use heuristics for making decisions on the transformations used for each piece of code. This objective can be selected to make the code run as fast as possible, whenever it doesn’t mean a toll in terms of code size.
 
-The `Enabled Transformations` can significantly affect the code generation. In order to get a better correlation between the written sources and the produced code during the debugging phase, it is recommended to leave the compiler optimization level on __None__ or __Low__ for *Debug*. Then, later on, as the application becomes ready for *Release* and the code has been already debugged, the level can be raised to __High__.
+![project-options-compiler-optimizations](images/22.png)
 
-### Compiler's preprocessor
-Another tab which is commonly used when migrating projects to the __IAR Embedded Workbench__ is the `Preprocessor` tab in the `C/C++ Compiler` category. This is where symbols could be specified. One possible scenario, for example, would be checking an originating *Makefile* in order to find any required symbols. Once they are found, it is just about bringing these symbols to the `Defined Symbols` box. For example: 
+> * When the __High/Speed__ level is selected, the check box `No size constraints` can be enabled. This option will generate the code to run as fast as possible.
+> 
+> ![project-options-compiler-no-constraints](images/no-constraints.png)
 
-![optICCpreprocessor](images/23.png)
+The `Enabled Transformations` can be cherry-picked when higher optimization levels are selected. When enabled, these transformations significantly affect the code generation for the better. Although, when __debugging__ code, it is recommended to leave the compiler optimization level on __None__ or __Low__, where those transformations do not happen, so the generated code will have a better correlation with the source code. A lower optimization level provides better visibility for debugging purposes. The "Debug" configuration uses the __Low__ level as default. 
+
+When the application is ready for its __Release__, with its source code already debugged, the compiler optimization level can be raised to __High__ as in the "Release" build configuration. The __Workspace window__ offers a build configuration drop-down box which allows to quickly switch back and forth between these build configurations:
+
+![workspace-build-configuration-switcher](images/20.png)
+
+### C/C++ Compiler Preprocessor
+Another tab which is commonly used when migrating projects to the __IAR Embedded Workbench__ is the `Preprocessor` tab in the `C/C++ Compiler` category. This is where symbols could be specified.
+
+One possible scenario, for example, would be checking an originating *Makefile* in order to find any required symbols. Once they are found, it is just about bringing these symbols to the `Defined Symbols` box. For example: 
+
+![project-options-compiler-preprocessor](images/23.png)
 
 ### Linker configuration
-Once you have your [target device selected](#target-device-selection), the linker configuration file (*.icf*) will automatically change to one common configuration, as it can be seen on the `Config` tab, under the `Linker` category. The default linker configuration should allow the programs with no specific flash partitioning requirements (*as it would be, for example, in a bootloader application*) to run with no issues. Even then, if a specific configuration is needed for the project, it is just about enabling `Override default` for the configuration:
+Once you have your [target device selected](#target-device-selection), the linker configuration file (`*.icf`) will automatically change to one common configuration, as it can be seen on the `Config` tab, under the `Linker` category. The default linker configuration should allow the programs with no specific flash partitioning requirements (*as it would be, for example, in a bootloader application*) to run with no issues. Even then, if a specific configuration is needed for the project, it is just about enabling `Override default` for the configuration:
 
-![optICClinkerConfig](images/24.png)
+![project-options-linker](images/24.png)
 
 ### Debugger Configuration
-The last essential category to keep in mind when migrating projects to the __IAR Embedded Workbench__ is the `Debugger` category. Here you will find the `Setup` tab, where you can easily choose among several different supported debugging probes. For the optimal experience, we recommend the [__IAR I-jet probes__](https://www.iar.com/iar-embedded-workbench/add-ons-and-integrations/in-circuit-debugging-probes/). Worth mentioning that all the different __IAR Embedded Workbench__ architecture flavors comes with an integrated `Simulator` which allows you, for example, to play with your project in case the target board isn’t ready yet. To learn more about the `Simulator`, interrupt simulation and the __C-SPY macros__, visit `Help` → `Information Center` → `Product explorer` and try those tutorials.
+The last essential category to keep in mind when migrating projects to the __IAR Embedded Workbench__ is the `Debugger` category. Here you will find the `Setup` tab, where you can easily choose among several different supported debugging probes. For the optimal experience, we recommend the [__IAR I-jet probes__](https://www.iar.com/ijet). 
 
-![optDebuggerSetup](images/25.png)
+![project-options-debugger](images/25.png)
+
+Worth mentioning that all the different __IAR Embedded Workbench__ architecture flavors come with an integrated __Simulator__ which allows you, for example, to start debugging the code of your project even when the actual target board isn’t ready yet. 
+
+To learn more about the __Simulator__, its interrupt simulation capabilities and the __C-SPY macros__, visit the __Product explorer__ from the IDE's main menu: `Help` → `Information Center` → `Product explorer` and try those tutorials.
+
+### Source code migration
+If the original source code was written using _Standard C_ or _Standard C++_, it is likely that you are good to go.
+
+When migrating sources that use non-portable code (i.e. compiler-specific extensions), a developer needs to review and migrate such code manually. The steps involved in porting code are often architecture-dependent and these steps are beyond the scope of this tutorial. Device-specific startup files are, in many cases, bundled with the IAR Embedded Workbench project examples in the Information Center, accessible from the IDE's main menu: `Help` → `Information Center` → `Example projects`.
+
+For more information, refer to the __User Guides__ directly from the [IAR Systems Support page](https://www.iar.com/knowledge/support). If you have the product already installed on your workstation, it is possible to access its __User Guides__ from the IDE's main menu: `Help` → `Information Center` → `User guides`.
 
 ### Summary
 This short *Getting Started tutorial* is far from being a complete walkthrough guide which would present every possible option or particular occasion which could pop-up when migrating projects. Even then, the techniques presented here are good hints and powerful shortcuts for moving faster across the essential steps that pave the way to unleash the full potential on the *IAR Embedded Workbench* IDE. The [User guides](https://www.iar.com/support/user-guides/user-guide-iar-embedded-workbench-for-arm) included in the `Help` → `Information Center` → `User guides` can also be of great help in this process.  
