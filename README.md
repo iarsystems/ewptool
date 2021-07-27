@@ -103,7 +103,7 @@ The __EWPtool__ utility detects source file types by their extension. The file e
 |------------------|---------------------------------------------------------------------------------------------------------|
 |C sources         | `*.c`                                                                                                   |
 |C++ sources       | `*.cc`, `*.cpp`                                                                                         |
-|Assembly sources  | `*.s` `*.asm`, `*.msa`,<br/>`*.s90` (AVR), `*.s51` (8051), `*.s43` (430), `*.s26` (78K), `*.s85` (V850) |
+|Assembly sources  | `*.s`, `*.asm`, `*.msa`,<br/>`*.s90` (AVR), `*.s51` (8051), `*.s43` (430), `*.s26` (78K), `*.s85` (V850) |
 
 >:warning: Any required pre-built static libraries must be manually added to the project.
 
