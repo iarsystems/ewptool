@@ -27,7 +27,7 @@ Make sure this feature is enabled in `Tools` → `Options` → `Project` → `En
 The installation of the __EWPtool__ utility is simple. Please follow the steps below:
 
 1. Close all the instances of the __IAR Embedded Workbench IDE__.
-2. Download the archive with the latest release of the [EWPtool utility](https://github.com/IARSystems/project-migration-tools/releases/download/3.1.0/EWPtool-3.1.0.zip).
+2. Download the archive with the latest release of the [EWPtool utility](https://github.com/IARSystems/project-migration-tools/releases/download/3.2.0/EWPtool-3.2.0.zip).
 3. Extract the zip archive contents inside the `<path-to>/<iar-embedded-workbench-installation-folder>`, on top of its existing `common` folder.
 4. Launch the __IAR Embedded Workbench IDE__.
 
@@ -99,14 +99,13 @@ This automation will propagate through every existing build configuration within
 ### Source code detection
 The __EWPtool__ utility detects source file types by their extension. The file extensions that are automatically detected are specified in the table below.
 
-| Source file type | Extension           |
-|------------------|---------------------|
-|C sources         | __*.c__             |
-|C++ sources       | __*.cc__, __*.cpp__ |
-|Assembly sources  | __*.s__             |
-|Static libraries  | __*.a__             |
+| Source file type | Detected extensions                                                                                     |
+|------------------|---------------------------------------------------------------------------------------------------------|
+|C sources         | `*.c`                                                                                                   |
+|C++ sources       | `*.cc`, `*.cpp`                                                                                         |
+|Assembly sources  | `*.s`, `*.asm`, `*.msa`,<br/>`*.s90` (AVR), `*.s51` (8051), `*.s43` (430), `*.s26` (78K), `*.s85` (V850) |
 
->:warning: Automatic source code detection might fail for some file extensions when using the __EWPtool__ with architectures that rely on the XLINK technology.
+>:warning: Any required pre-built static libraries must be manually added to the project.
 
 ## Customizing the project tree layout
 Once we get all the desired files automatically appended to the project, we can think of ways of customizing the project layout in the __Workspace window__, according to any particular preferences.
