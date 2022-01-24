@@ -53,7 +53,7 @@ From this section onwards, we will use a fictional project containing many sourc
 
 >:bulb: The tool can only act upon the contents it finds on the "disk". To avoid the need of re-scanning the selected source tree twice, remember to __always save the project before__ invoking the __EWPtool__.
 
-* Invoke the __EWPtool__: select `Tools` → `Add new source folder…`.
+* Invoke the __EWPtool__: select `Tools` → `Select source folder…`.
 
 >![ewptool-menu-entry](images/7.png)
 
