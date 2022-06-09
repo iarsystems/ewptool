@@ -281,8 +281,8 @@ This short tutorial offered general guidelines with tips and shortcuts for devel
 [url-repo-issue-new]: https://github.com/IARSystems/project-migration-tools/issues/new
 [url-repo-issue-old]: https://github.com/IARSystems/project-migration-tools/issues?q=is%3Aissue+is%3Aopen%7Cclosed
 
-[url-repo-tool-release-dl]: https://github.com/IARSystems/project-migration-tools/releases/download/4.1.5/EWPtool-4.1.5.zip
-[url-repo-tool-release-rn]: https://github.com/IARSystems/project-migration-tools/releases/tag/4.1.5
+[url-repo-tool-release-dl]: https://github.com/IARSystems/project-migration-tools/releases/download/4.1.6/EWPtool-4.1.6.zip
+[url-repo-tool-release-rn]: https://github.com/IARSystems/project-migration-tools/releases/tag/4.1.6
 
 [url-iar-migration]: https://iar.com/products/project-migration-tools
 [url-iar-doc-proj-dir]: https://wwwfiles.iar.com/arm/webic/doc/EWARM_IDEGuide.ENU.pdf#page=89
