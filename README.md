@@ -7,7 +7,7 @@ __EWPtool__ is a lightweight sidekick that can help by speeding up the process o
 Currently the IDE allows adding source files from a single folder at a time, which is fine for a few folders. Although, this process can become time-consuming in cases where there are too many folders.
 
 ### What does EWPtool do?
-From the IDE, the EWPtool utility acts as an external tool that extends its functionality. When invoked, it asks for where the project's source tree can be found.Then EWPtool automates the task of populating the project with the source code tree. The bigger the selected source tree is, the more evident its yielded benefit becomes. 
+From the IDE, the EWPtool utility acts as an external tool that extends its functionality. When invoked, it asks for where the project's source tree can be found. Then EWPtool automates the task of populating the project with the source code tree. The bigger the selected source tree is, the more evident its yielded benefit becomes. 
 
 The __EWPtool__ modifies the following entries in the `.ewp` project:
 * Populates the project's tree layout, reflecting the selected source code tree layout in the filesystem.
@@ -86,11 +86,11 @@ For this fictional example let's consider using the __EWPtool__ a second time fo
 
 ![add-3rd-party-code](images/11.png)
 
-When selecting source folders located above __$PROJ_DIR$__, one or more groups named `..` are created as reference to how many levels above the __$PROJ_DIR$__ the extra source folders are located, reflecting the arrangement of these source files on the filesystem. On the logical layout this grouping convention helps to identify where the extra source files are located relatively to the __$PROJ_DIR$__.
+When selecting source folders located above `$PROJ_DIR$`, one or more groups named `..` are created as reference to how many levels above the `$PROJ_DIR$` the extra source folders are located, reflecting the arrangement of these source files on the filesystem. On the logical layout this grouping convention helps to identify where the extra source files are located relatively to the `$PROJ_DIR$`.
 
 ><!-- ![workspace-upper-folders](images/12.png) -->
 
->:bulb: [__$PROJ_DIR$__][url-iar-doc-proj-dir] is an IDE's internal __argument variable__ which translates to the absolute path for the location where the `.ewp` file is stored.
+>:bulb: [`$PROJ_DIR$`][url-iar-doc-proj-dir] is an IDE's internal __argument variable__ which translates to the absolute path for the location where the `.ewp` file is stored.
 
 ### Source code detection
 The __EWPtool__ utility detects source file types from the selected source tree by their extension. The file extensions that are automatically detected are specified in the table below.
