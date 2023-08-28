@@ -25,7 +25,7 @@ Rest assured that:
 The __EWPtool__ can be used with any reasonably recent versions of the _IAR Embedded Workbench_. Installing the tool simply means deploying its files on top of an existing instance of the IDE. Please follow the steps below:
 
 1. Close all the instances of the IDE.
-2. Download the archive (EWPtool-\<version\>.zip) from the latest [[Release notes][url-repo-tool-release-rn]].
+2. Download the archive (EWPtool-\<version\>.zip) available from the latest [Release notes][url-repo-tool-release-rn].
 3. Extract the zip archive contents inside the `<path-to>/<iar-embedded-workbench-installation-folder>/common` folder.
 4. Launch the IDE.
 
@@ -89,7 +89,7 @@ This short tutorial offered general guidelines with tips and shortcuts for devel
 [url-repo-issue-new]: https://github.com/IARSystems/project-migration-tools/issues/new
 [url-repo-issue-old]: https://github.com/IARSystems/project-migration-tools/issues?q=is%3Aissue+is%3Aopen%7Cclosed
 
-[url-repo-tool-release-rn]: https://github.com/IARSystems/project-migration-tools/releases/tag/latest
+[url-repo-tool-release-rn]: https://github.com/IARSystems/project-migration-tools/releases/latest
 
 [url-iar-migration]: https://iar.com/products/project-migration-tools
 [url-iar-doc-proj-dir]: https://wwwfiles.iar.com/arm/webic/doc/EWARM_IDEGuide.ENU.pdf#page=89
