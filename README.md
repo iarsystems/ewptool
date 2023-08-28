@@ -74,7 +74,7 @@ From this section onwards, we will use a fictional project containing many sourc
 
 And this is what you need to know to start using the IAR __EWPtool__ Utility.
 
-Proceed to the [IAR EWPtool wiki] for more information.
+Proceed to the [IAR EWPtool wiki][url-repo-wiki] for more information.
 
 ## Issues
 Found an issue or have a suggestion related to the __EWPtool__? Feel free to use the public issue tracker.
@@ -90,6 +90,8 @@ This short tutorial offered general guidelines with tips and shortcuts for devel
 [url-repo-issue-old]: https://github.com/IARSystems/project-migration-tools/issues?q=is%3Aissue+is%3Aopen%7Cclosed
 
 [url-repo-tool-release-rn]: https://github.com/IARSystems/project-migration-tools/releases/latest
+
+[url-repo-wiki]: https://github.com/IARSystems/project-migration-tools/wiki
 
 [url-iar-migration]: https://iar.com/products/project-migration-tools
 [url-iar-doc-proj-dir]: https://wwwfiles.iar.com/arm/webic/doc/EWARM_IDEGuide.ENU.pdf#page=89
