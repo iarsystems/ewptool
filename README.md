@@ -77,9 +77,10 @@ And this is what you need to know to start using the IAR __EWPtool__ Utility.
 Proceed to the [IAR EWPtool wiki][url-repo-wiki] for more information.
 
 ## Issues
-Found an issue or have a suggestion related to the __EWPtool__? Feel free to use the public issue tracker.
-- Do not forget to take a look on [earlier issues][url-repo-issue-old].
-- If creating a [new][url-repo-issue-new] issue, please describe it in detail.
+Found an issue or have a suggestion related to the __EWPtool__? 
+- Try the [wiki][url-repo-wiki].
+- Check for [earlier issues][url-repo-issue-old] in the public issue tracker.
+- If nothing helps, create a [new][url-repo-issue-new] issue, describing in detail.
 
 ## Summary
 This short tutorial offered general guidelines with tips and shortcuts for developers willing to get a speedup factor when migrating a project, from scratch, to the _IAR Embedded Workbench_.
