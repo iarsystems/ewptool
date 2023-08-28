@@ -54,11 +54,11 @@ From this section onwards, we will use a fictional project containing many sourc
 
 * Invoke the __EWPtool__: select `Tools` → `Select source folder…`.
 
->![ewptool-menu-entry](images/7.png)
+>![ewptool-menu-entries](https://github.com/IARSystems/project-migration-tools/assets/54443595/ef59336b-b787-4a8e-9edd-a7f6856ee4a5)
 
 * A new window titled __Browse for Folder__ will show up pointing initially to the folder where the `.ewp` file is. From there, select the desired source tree folder that will populate the active project. Usually the project's top directory will be chosen. For example:
 
->![ewptool-browser](images/8.png)
+>![ewptool-browser](https://github.com/IARSystems/project-migration-tools/assets/54443595/fc2fdba4-00d6-4bd6-8f37-8268d3df5c47)
 >
 >:warning: Please notice that the __EWPtool__ is also able to add folders that are located on any upper or lower level relative to the `.ewp` file, as far as the chosen folder belongs to **the same drive in which the project file is stored (i.e. C:, D:, etc.)**.
 >
@@ -66,11 +66,11 @@ From this section onwards, we will use a fictional project containing many sourc
 
 * The IDE will then tell you that the `<path-to>/<project-name>.ewp` project file has been modified on "disk" and will offer to __reload the project__. This happens because the __EWPtool__ scanned the selected source tree, found changes, and updated entries in the project tree layout. Click on the `Yes` button to allow the IDE to reload the project.
 
->![dialog-project-reload](images/9.png)
+>![dialog-project-reload](https://github.com/IARSystems/project-migration-tools/assets/54443595/a938a672-5176-4ced-8c0f-8e40fe494811)
 
 * Reloading the project will recursively add the source files from the selected folder to the current build configuration ("Debug" in this example). The result can be verified by unfolding the groups, located in the project's __Workspace window__:
- 
->![workspace-initial-project-layout-tree](images/10.png)
+
+>![workspace-initial-project-layout-tree](https://github.com/IARSystems/project-migration-tools/assets/54443595/9e72d036-621c-4266-9b7e-c7eb3d81068d)
 
 And this is what you need to know to start using the __EWPtool__ utility. 
 
@@ -83,7 +83,7 @@ That's not always the case. Let's consider one use case where pieces of the appl
 
 For this fictional example let's consider using the __EWPtool__ a second time for adding another folder, named `3rd-party-components`. The folder is located on the same level where the project's directory is located (`../$PROJ_DIR$`):
 
-![add-3rd-party-code](images/11.png)
+![add-3rd-party-code](https://github.com/IARSystems/project-migration-tools/assets/54443595/a5fa7734-ee8a-4484-b44d-c8e40d5afb5f)
 
 When selecting source folders located above `$PROJ_DIR$`, one or more groups named `..` are created as reference to how many levels above the `$PROJ_DIR$` the extra source folders are located, reflecting the arrangement of these source files on the filesystem. On the logical layout this grouping convention helps to identify where the extra source files are located relatively to the `$PROJ_DIR$`.
 
@@ -143,7 +143,7 @@ or...
    - While holding <kbd>SHIFT</kbd>, select multiple files (i.e. click on `buffer_typeB.c` followed by `buffer_typeC.c`).
    - Finally drag the selection and drop these files inside the `excluded` group. By consequence, they will be excluded from the current build configuration (the example depicts "Debug").
 
->![project-exclude-group](images/exclude.png)
+>![project-exclude-group](https://github.com/IARSystems/project-migration-tools/assets/54443595/2e1648d9-4c06-4c77-b55b-1909564e0baf)
 >
 >:warning: Notice that when a group or a file is __excluded from build__, its icon becomes grayed.
 >
@@ -151,8 +151,7 @@ or...
 >
 >:bulb: Once the layout was customized, save the project by choosing `File` → `Save All`. Alternatively, click the `Save All` icon in the __main toolbar__.
 >
->![ide-save-all](images/18.png)
-
+> ![ide-save-all](https://github.com/IARSystems/project-migration-tools/assets/54443595/757b47fd-baa2-4a50-830c-f6423dc3bd97)
 
 ## Great! Now what?
 As we have seen, the sole purpose of the __EWPtool__ is to be one of the developer's sidekicks when it comes to quickly populate a new (or an existing) project with existing source folders.
@@ -179,7 +178,7 @@ How to access:
 
 The __Target__ tab will allow you to select the target device. This tab will present itself slightly different depending on the _IAR Embedded Workbench_ architecture in use. The screenshots below were taken from the __Arm__ and __RISC-V__ flavors, respectively:  
 
-![target-tab](images/19-arm+riscv.png)
+![target-page](https://github.com/IARSystems/project-migration-tools/assets/54443595/152127aa-7bd0-437b-bba2-a28fd5cfa7ab)
 
 ### Runtime library Configurations
 How to access:
@@ -190,7 +189,7 @@ The __Library Configuration__ tab allows us to configure the runtime library opt
 
 This tab might be especially interesting for __Arm__ users working with [CMSIS](https://developer.arm.com/tools-and-software/embedded/cmsis)-based projects; case in which the `Use CMSIS` option might have to be enabled.
 
-![project-options-library-config-cmsis](images/21.png)
+![project-options-library-config-cmsis](https://github.com/IARSystems/project-migration-tools/assets/54443595/e76d2797-c413-4423-a0ce-2b6cbaf724bd)
 
 ### C/C++ Compiler Optimizations
 How to access:
@@ -207,7 +206,7 @@ When __High__ is selected, it is possible to select among 3 different optimizati
 
 - `Balanced` will use heuristics for making decisions on the transformations used for each piece of code. This objective can be selected to make the code run as fast as possible, whenever it doesn’t mean a toll in terms of code size.
 
-![project-options-compiler-optimizations](images/22.png)
+![project-options-compiler-optimizations](https://github.com/IARSystems/project-migration-tools/assets/54443595/916fded5-ab78-4a91-b6e2-299969e1b53b)
 
 The `Enabled Transformations` can be cherry-picked when higher optimization levels are selected. When enabled, these transformations significantly affect the code generation for the better. 
 
@@ -215,11 +214,11 @@ The `Enabled Transformations` can be cherry-picked when higher optimization leve
 
 >:bulb: When the application is ready for its __Release__, with its source code already debugged, the compiler optimization level can be raised to __High__ as in the "Release" build configuration. The __Workspace window__ offers a build configuration drop-down box which allows to quickly switch back and forth between these build configurations:
 >
->![workspace-build-configuration-switcher](images/20.png)
+>![workspace-build-configuration-switcher](https://github.com/IARSystems/project-migration-tools/assets/54443595/0d3b85f0-4e92-4fd4-89c7-0875792e9f56)
 
 >:bulb: When the __High/Speed__ level is selected, the check box `No size constraints` can be enabled. This option will generate code that executes as fast as possible.
-> 
-> ![project-options-compiler-no-constraints](images/no-constraints.png)
+>
+>![project-options-compiler-no-constraints](https://github.com/IARSystems/project-migration-tools/assets/54443595/6633affb-235f-46f2-9c49-1987507f4c59)
 
 ### C/C++ Compiler Preprocessor
 How to access:
@@ -230,13 +229,13 @@ By default, a project created with the _IAR Embedded Workbench_ will search for 
 
 In this tab, it is possible to specify __Additional Include Directories: (one per line)__ here.
 
-![options-compiler-preprocessor](images/13.png)
+![options-compiler-preprocessor](https://github.com/IARSystems/project-migration-tools/assets/54443595/7591d18c-44c3-48be-912b-8027e22b2b65)
 
 >:bulb: When one or more source folders are added to the project using the __EWPtool__, it will recursively detect any folders containing header files (any files with the __.h__ or the __.hpp__ extensions). Then it will fill the C/C++ Preprocessor entries accordingly.
 
 >:bulb: This is also where symbols could be specified. One possible scenario, for example, would be taking an originating *Makefile* in search of any application's required symbols. Once they are found, it is just about bringing these symbols to the `Defined Symbols` box. For example: 
-> 
-> ![project-options-compiler-preprocessor](images/23.png)
+>
+>![project-options-compiler-preprocessor-symbols](https://github.com/IARSystems/project-migration-tools/assets/54443595/344d89e5-d31a-49f1-a2c6-a8c0a9415abb)
 
 ### Linker configurations
 Once the [target device](#target-device-selection) is selected:
@@ -245,7 +244,7 @@ Once the [target device](#target-device-selection) is selected:
 
 The linker configuration file (`*.icf`) will automatically change according to the selected target. The target's default linker configuration should be ready to use the programs with no specific flash partitioning requirements (*as it would be, for example, in a bootloader application*) to run with no issues. Even then, if a specific configuration is needed for the project, it is just about enabling `Override default` for the configuration:
 
-![project-options-linker](images/24.png)
+![project-options-linker](https://github.com/IARSystems/project-migration-tools/assets/54443595/3b8f31f7-759b-4330-b4e9-2ade56be77ea)
 
 ### Debugger Configurations
 How to access:
@@ -254,7 +253,7 @@ How to access:
 
 In this tab you can switch to the __Driver__ for of the supported debugging probes of your choice. The list of drivers changes according to the target architecture in use.
 
-![project-options-debugger](images/25.png)
+![project-options-debugger-setup-driver](https://github.com/IARSystems/project-migration-tools/assets/54443595/79e09082-fb18-403a-a3f8-9a82df9aab61)
 
 >:bulb: For the optimal experience with __Arm__ or __RISC-V__ targets, we recommend the [__IAR I-jet probes__](https://iar.com/ijet).
  
