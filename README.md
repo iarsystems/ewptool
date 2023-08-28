@@ -1,13 +1,12 @@
-## Tutorial</br>Getting Started with the EWPtool
+## Getting started with IAR EWPtool Utility
 
+### What is EWPtool?
+The _IAR Embedded Workbench IDE_ allows adding source files from a single folder at a time, which is fine for a few folders. Although, this process can become time-consuming in cases where there are many folders are involved.
 
-### What is the EWPtool utility?
-__EWPtool__ is a lightweight sidekick that can help by speeding up the process of populating an IAR **E**mbedded **W**orkbench **P**roject (`.ewp`) with an existing source code tree.
-
-Currently the IDE allows adding source files from a single folder at a time, which is fine for a few folders. Although, this process can become time-consuming in cases where there are too many folders.
+__EWPtool__ can speed up the process of populating an IAR **E**mbedded **W**orkbench **P**roject file (`*.ewp`) by traversing an existing source code tree.
 
 ### What does EWPtool do?
-From the IDE, the EWPtool utility acts as an external tool that extends its functionality. When invoked, it asks for where the project's source tree can be found. Then EWPtool automates the task of populating the project with the source code tree. The bigger the selected source tree is, the more evident its yielded benefit becomes. 
+From the IDE, the IAR EWPtool Utility acts as an external tool that extends its functionality. When invoked, it asks for where the project's source tree can be found. Then EWPtool automates the task of populating the project with the source code tree. The bigger the selected source tree is, the more evident its yielded benefit becomes. 
 
 The __EWPtool__ modifies the following entries in the `.ewp` project:
 * Populates the project's tree layout, reflecting the selected source code tree layout in the filesystem.
