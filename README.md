@@ -48,9 +48,9 @@ This section describes the steps for when populating an IAR Embedded Workbench p
 
 * Create a __New Empty Project__ by choosing __Project__ → __Create New Project__ → __Empty Project__ → __OK__.
 
-* A __Save As__ dialog will show up. Save the `<project-name>.ewp` in the project's source tree top level folder.
+* A __Save As__ dialog will show up. Save the `<project-name>.ewp` in the project's top level folder.
 
-* Select __Tools__ → __Select source folder…__.
+* Choose __Tools__ → __Select source folder…__.
 
 ![ewptool-menu-entries](https://github.com/IARSystems/project-migration-tools/assets/54443595/ef59336b-b787-4a8e-9edd-a7f6856ee4a5)
 
@@ -58,17 +58,17 @@ This section describes the steps for when populating an IAR Embedded Workbench p
 
 ![ewptool-browser](https://github.com/IARSystems/project-migration-tools/assets/54443595/fc2fdba4-00d6-4bd6-8f37-8268d3df5c47)
 
+>:bulb: Each time a source folder selection is made, the EWPtool configuration file for the project is updated (`<project-directory>/settings/<project-name>.cfg`). The selection is saved in the configuration file for later when use the menu command __Tools__ → __Rescan selected source folder(s)__ is invoked.
+
 >:warning: The folder selection is limited to the same drive (`A:`, ..., `Z:`) in which the project file (`*.ewp`) is located.
 
->:bulb: Each time a source folder selection is made, the EWPtool configuration file for the project is updated (`<project-directory>/settings/<project-name>.cfg`). The configuration file is used when the menu command `Tools` → `Rescan selected source folder(s)` is invoked.
-
-* The IDE will then tell you that the `<path-to>/<project-name>.ewp` project file has been modified on "disk" and will offer to __reload the project__. This happens because the __EWPtool__ scanned the selected source tree, found changes, and updated entries in the project tree layout. Click on the `Yes` button to allow the IDE to reload the project.
+* The IDE will then tell you that the `<path-to>/<project-name>.ewp` project file has been "modified on disk" and will offer to reload the project. This happens because EWPtool scanned the selected source tree, found changes, and updated entries in the project tree layout. Click on the ` Yes ` button to reload the project.
 
 ![dialog-project-reload](https://github.com/IARSystems/project-migration-tools/assets/54443595/a938a672-5176-4ced-8c0f-8e40fe494811)
 
 >__Note__ EWPtool can only act upon the contents it finds on the "disk". Always save the project (__File__ → __Save all__) before using the tool.
 
-* When the project is reloaded, it should be automatically populated with all the source files detected in the monitored folder(s). The result can be verified by unfolding the group nodes in the __Workspace window__'s project tree:
+* When the project is reloaded, it should be automatically populated with all the source files detected in the monitored folder(s). The result can be verified by unfolding group nodes in the __Workspace window__'s project tree:
 
 >![workspace-initial-project-layout-tree](https://github.com/IARSystems/project-migration-tools/assets/54443595/9e72d036-621c-4266-9b7e-c7eb3d81068d)
 
