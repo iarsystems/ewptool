@@ -22,14 +22,14 @@ Rest assured that:
 
 
 ## Installing
-The __EWPtool__ can be used with any reasonably recent versions of the _IAR Embedded Workbench_. Installing the tool simply means deploying its files on top of an existing instance of the IDE. Please follow the steps below:
+__EWPtool__ can be used on top of any reasonably recent version of the IAR Embedded Workbench IDE. Installing the tool simply means deploying its files on top of an existing instance of the IDE. Follow the steps below:
 
 1. Close all the instances of the IDE.
 2. Download the archive (`EWPtool-<version>.zip`) available from the latest [Release notes][url-repo-tool-release-rn].
 3. Extract the zip archive contents inside the `<path-to>/<iar-embedded-workbench-installation-folder>/common` folder.
 4. Launch the IDE.
 
->:warning: Please notice that, if multiple instances of the _IAR Embedded Workbench_ are installed on independent locations, __step 3.__ must be repeated for each instance in which the __EWPtool__ is going to be used with.
+>__Note__ When multiple instances of the IDE are installed on independent locations, repeat __step 3__ for each desired instance.
 
 
 ## Upgrading
@@ -41,38 +41,38 @@ The project layout in the _IAR Embedded Workbench_ is logical. This means that, 
 
 The __EWPtool__ populates a project by reflecting the selected source tree layout, so the logical layout will initially match the layout from the filesystem.
 
-### Adding the project's sources
-From this section onwards, we will use a fictional project containing many source folders as an example on how the __EWPtool__ can be used.
+### Adding source folders to a project
+This section describes the steps for when populating an IAR Embedded Workbench project from scratch with a pre-existing source code tree.
 
->:warning: __EWPtool__ does not create any sort of backup of the affected `<project-name>.ewp`. Before proceeding it is recommended to have a _version control system_ in place or __-at least-__ a backup copy of the project, in case you wish to rollback any performed changes.
+>:warning: __EWPtool__ does not create any sort of backup of the affected `<project-name>.ewp` file. It is recommended to have a backup copy or a _version control system_ in place before proceeding for rolling back in case there are any undesired changes.
 
-* Create a __New Empty Project__ by choosing `Project` → `Create New Project` → `Empty Project` → `OK`.
+* Create a __New Empty Project__ by choosing __Project__ → __Create New Project__ → __Empty Project__ → __OK__.
 
-* A __Save As__ dialog will show up. Save the `<project-name>.ewp` in the project's source tree top level folder.
+* A __Save As__ dialog will show up. Save the `<project-name>.ewp` in the project's top level folder.
 
->:bulb: The tool can only act upon the contents it finds on the "disk". To avoid the need of re-scanning the selected source tree twice, remember to __always save the project before__ invoking the __EWPtool__.
+* Choose __Tools__ → __Select source folder…__.
 
-* Invoke the __EWPtool__: select `Tools` → `Select source folder…`.
+![ewptool-menu-entries](https://github.com/IARSystems/project-migration-tools/assets/54443595/ef59336b-b787-4a8e-9edd-a7f6856ee4a5)
 
->![ewptool-menu-entries](https://github.com/IARSystems/project-migration-tools/assets/54443595/ef59336b-b787-4a8e-9edd-a7f6856ee4a5)
+* A dialog window (__Browse For Folder__) will show up pointing initially to the folder where the `.ewp` file is. From there, select the desired source tree folder that will populate the active project. Usually, the project's top directory will be the natural choice. For example:
 
-* A dialog window (__Browse for Folder__) will show up pointing initially to the folder where the `.ewp` file is. From there, select the desired source tree folder that will populate the active project. Usually, the project's top directory will be the natural choice. For example:
+![ewptool-browser](https://github.com/IARSystems/project-migration-tools/assets/54443595/fc2fdba4-00d6-4bd6-8f37-8268d3df5c47)
 
->![ewptool-browser](https://github.com/IARSystems/project-migration-tools/assets/54443595/fc2fdba4-00d6-4bd6-8f37-8268d3df5c47)
->
->:warning: Please notice that the __EWPtool__ is also able to add folders that are located on any upper or lower level relative to the `.ewp` file, as far as the chosen folder belongs to **the same drive in which the project file is stored (i.e. C:, D:, etc.)**.
->
->:bulb: The selected folder is saved in `settings/<PROJ_FNAME>.cfg` so it can be used later with the command `Tools` → `Rescan selected source folder(s)`, which will skip the __Browse for folder__ dialog.
+>:bulb: Each time a source folder selection is made, the EWPtool configuration file for the project is updated (`<project-directory>/settings/<project-name>.cfg`). The selection is saved in the configuration file for later when use the menu command __Tools__ → __Rescan selected source folder(s)__ is invoked.
 
-* The IDE will then tell you that the `<path-to>/<project-name>.ewp` project file has been modified on "disk" and will offer to __reload the project__. This happens because the __EWPtool__ scanned the selected source tree, found changes, and updated entries in the project tree layout. Click on the `Yes` button to allow the IDE to reload the project.
+>:warning: The folder selection is limited to the same drive (`A:`, ..., `Z:`) in which the project file (`*.ewp`) is located.
 
->![dialog-project-reload](https://github.com/IARSystems/project-migration-tools/assets/54443595/a938a672-5176-4ced-8c0f-8e40fe494811)
+* The IDE will then tell you that the `<path-to>/<project-name>.ewp` project file has been "modified on disk" and will offer to reload the project. This happens because EWPtool scanned the selected source tree, found changes, and updated entries in the project tree layout. Click on the ` Yes ` button to reload the project.
 
-* Reloading the project will recursively add the source files from the selected folder to the current build configuration ("Debug" in this example). The result can be verified by unfolding the groups, located in the project's __Workspace window__:
+![dialog-project-reload](https://github.com/IARSystems/project-migration-tools/assets/54443595/a938a672-5176-4ced-8c0f-8e40fe494811)
+
+>__Note__ EWPtool can only act upon the contents it finds on the "disk". Always save the project (__File__ → __Save all__) before using the tool.
+
+* When the project is reloaded, it should be automatically populated with all the source files detected in the monitored folder(s). The result can be verified by unfolding group nodes in the __Workspace window__'s project tree:
 
 >![workspace-initial-project-layout-tree](https://github.com/IARSystems/project-migration-tools/assets/54443595/9e72d036-621c-4266-9b7e-c7eb3d81068d)
 
-And this is what you need to know to start using the IAR __EWPtool__ Utility.
+And this is what you need to know to start using the __IAR EWPtool Utility__.
 
 Proceed to the [IAR EWPtool wiki][url-repo-wiki] for more information.
 
