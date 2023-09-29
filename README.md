@@ -6,7 +6,7 @@ The _IAR Embedded Workbench IDE_ allows adding source files from a single folder
 __EWPtool__ can speed up the process of populating an IAR **E**mbedded **W**orkbench **P**roject file (`*.ewp`) by traversing an existing source code tree.
 
 ### What does EWPtool do?
-From the IDE, the IAR EWPtool Utility acts as an external tool that extends its functionality. When invoked, it asks for where the project's source tree can be found. Then EWPtool automates the task of populating the project with the source code tree. The bigger the selected source tree is, the more evident its yielded benefit becomes. 
+From the IDE, the IAR EWPtool Utility acts as an external tool that extends its functionality. When invoked, it asks for where the project's source tree can be found. Then EWPtool automates the task of populating the project with the selected source code tree. The bigger the selected source tree is, the more evident its yielded benefit becomes. 
 
 The __EWPtool__ modifies the following entries in the `.ewp` project:
 * Populates the project's tree layout, reflecting the selected source code tree layout in the filesystem.
@@ -17,8 +17,8 @@ The __EWPtool__ modifies the following entries in the `.ewp` project:
 ### What does EWPtool not do?
 Rest assured that:
 * __EWPtool__ does __not__ modify your _source files_.
-* __EWPtool__ does __not__ convert existing _project files_ created by 3rd-party IDEs.
->:bulb: About that, some target architectures of the _IAR Embedded Workbench_ might offer _built-in project converter tools_ able to deal with projects from 3rd-party IDEs. The _EWPtool utility_ is __not__ a requirement for when using those tools. In those cases, you can safely disregard this tutorial. Instead, please visit the _Migration Guides_ section in the official [Project Migration tools][url-iar-migration] page for more information specific to those tools.
+* __EWPtool__ does __not__ convert existing _project files_ created by 3<sup>rd</sup> party IDEs.
+>:bulb: About that, some target architectures of the _IAR Embedded Workbench_ might offer _built-in project converter tools_ able to deal with projects from 3<sup>rd</sup> party IDEs. The IAR EWPtool Utility is __not__ a requirement for when using those tools. In those cases, you can safely disregard this tutorial. Instead, please visit the _Migration Guides_ section in the official [Project Migration tools][url-iar-migration] page for more information specific to those tools.
 
 
 ## Installing
