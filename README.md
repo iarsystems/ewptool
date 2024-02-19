@@ -82,7 +82,7 @@ Found an issue or have a suggestion related to the __EWPtool__?
 - Check for [earlier issues][url-repo-issue-old] in the public issue tracker.
 - If nothing helps, create a [new][url-repo-issue-new] issue, describing in detail.
 
-<!-- Links v4.2.4 -->
+<!-- Links v4.2.6 -->
 [url-repo-issue]:     https://github.com/IARSystems/project-migration-tools/issues
 [url-repo-issue-new]: https://github.com/IARSystems/project-migration-tools/issues/new
 [url-repo-issue-old]: https://github.com/IARSystems/project-migration-tools/issues?q=is%3Aissue+is%3Aopen%7Cclosed
