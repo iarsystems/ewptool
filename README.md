@@ -62,7 +62,7 @@ This section describes the steps for when populating an IAR Embedded Workbench p
 ![ewptool-browser](https://github.com/IARSystems/project-migration-tools/assets/54443595/fc2fdba4-00d6-4bd6-8f37-8268d3df5c47)
 
 > [!TIP]
-> Each time a source folder selection is made, the EWPtool configuration file for the project is updated (`<project-directory>/settings/<project-name>.cfg`). The selection is saved in the configuration file for later when use the menu command __Tools__ → __Rescan selected source folder(s)__ is invoked.
+> Each time a source folder selection is made, the EWPtool configuration file for the project is updated ([`$PROJ_DIR$`](https://github.com/IARSystems/ewptool/wiki/Glossary#proj_dir)`/settings/`[`$PROJ_FNAME$`](https://github.com/IARSystems/ewptool/wiki/Glossary#proj_fname)`.cfg`). The selection is saved in the configuration file for later when use the menu command __Tools__ → __Rescan selected source folder(s)__ is invoked.
 
 > [!WARNING]
 > The folder selection is limited to the same drive (`A:`, ..., `Z:`) in which the project file (`*.ewp`) is located.
