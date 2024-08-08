@@ -78,24 +78,24 @@ This section describes the steps for when populating an IAR Embedded Workbench p
 
 >![workspace-initial-project-layout-tree](https://github.com/IARSystems/project-migration-tools/assets/54443595/9e72d036-621c-4266-9b7e-c7eb3d81068d)
 
-And this is what you need to know to start using the __IAR EWPtool Utility__.
 
-Proceed to the [IAR EWPtool wiki][url-repo-wiki] for more information.
+## Summary
+In summary, this is what you need to know to start using the __IAR EWPtool Utility__. For more information, please visit the [IAR EWPtool wiki][url-repo-wiki].
+
 
 ## Issues
-Found an issue or have a suggestion related to the __EWPtool__? 
-- Try the [wiki][url-repo-wiki].
-- Check for [earlier issues][url-repo-issue-old] in the public issue tracker.
-- If nothing helps, create a [new][url-repo-issue-new] issue, describing in detail.
+For technical support contact [IAR Customer Support][url-iar-customer-support].
 
-<!-- Links v4.2.6 -->
-[url-repo-issue]:     https://github.com/IARSystems/project-migration-tools/issues
-[url-repo-issue-new]: https://github.com/IARSystems/project-migration-tools/issues/new
-[url-repo-issue-old]: https://github.com/IARSystems/project-migration-tools/issues?q=is%3Aissue+is%3Aopen%7Cclosed
+For questions or suggestions related to this repository: try the [wiki][url-repo-wiki] or check [earlier issues][url-repo-issue-old]. If those don't help, create a [new issue][url-repo-issue-new] with detailed information.
 
-[url-repo-tool-release-rn]: https://github.com/IARSystems/project-migration-tools/releases/latest
 
-[url-repo-wiki]: https://github.com/IARSystems/project-migration-tools/wiki
-
+<!-- Links v4.2.7 -->
+[url-iar-customer-support]: https://iar.my.site.com/mypages/s/contactsupport
 [url-iar-migration]: https://iar.com/products/project-migration-tools
-[url-iar-doc-proj-dir]: https://wwwfiles.iar.com/arm/webic/doc/EWARM_IDEGuide.ENU.pdf#page=89
+[url-iar-doc-proj-dir]: https://netstorage.iar.com/FileStore/STANDARD/001/002/979/arm/doc/EWARM_IDEGuide.ENU.pdf#page=91
+
+[url-repo-wiki]: https://github.com/IARSystems/ewptool/wiki
+[url-repo-issue]:     https://github.com/IARSystems/ewptool/issues
+[url-repo-issue-new]: https://github.com/IARSystems/ewptool/issues/new
+[url-repo-issue-old]: https://github.com/IARSystems/ewptool/issues?q=is%3Aissue+is%3Aopen%7Cclosed
+[url-repo-tool-release-rn]: https://github.com/IARSystems/ewptool/releases/latest
