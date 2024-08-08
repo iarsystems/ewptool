@@ -82,6 +82,8 @@ This section describes the steps for when populating an IAR Embedded Workbench p
 ## Summary
 In summary, this is what you need to know to start using the __IAR EWPtool Utility__. For more information, please visit the [IAR EWPtool wiki][url-repo-wiki].
 
+[__` Follow us `__](https://github.com/iarsystems) on GitHub to get updates about tutorials like this and more.
+
 
 ## Issues
 For technical support contact [IAR Customer Support][url-iar-customer-support].
